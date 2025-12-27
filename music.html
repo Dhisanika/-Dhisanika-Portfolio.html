@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Music Player</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+    }
+
+    .player {
+        background: rgba(255,255,255,0.95);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s;
+    }
+
+    .player:hover {
+        transform: scale(1.05);
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    /* Custom audio styling */
+    audio {
+        width: 100%;
+        border-radius: 10px;
+        outline: none;
+        margin-bottom: 20px;
+    }
+
+    /* Interactive buttons with CSS only */
+    .controls label {
+        display: inline-block;
+        background: #6a11cb;
+        color: #fff;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .controls label:hover {
+        background: #2575fc;
+        transform: scale(1.1);
+    }
+
+    /* Hide actual checkbox */
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    /* Toggle play/pause text */
+    input#play:checked + label[for="play"]::after {
+        content: "⏸ Pause";
+    }
+    input#play:not(:checked) + label[for="play"]::after {
+        content: "▶️ Play";
+    }
+</style>
+</head>
+<body>
+
+<div class="player">
+    <h2>CSS Music Player</h2>
+
+    <audio id="audio" controls>
+        <source src="song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="controls">
+        <!-- Using checkbox purely for interactive text change -->
+        <input type="checkbox" id="play">
+        <label for="play"></label>
+        <label>⏹ Stop</label>
+    </div>
+</div>
+
+</body>
+</html>
